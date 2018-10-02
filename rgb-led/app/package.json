@@ -1,0 +1,19 @@
+{
+  "name": "rgb",
+  "version": "0.0.1",
+  "description": "simple exemple for controlling the Balena Fin RGB LED",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "dependencies": {
+    "chalk": "~2.4.0",
+    "onoff": "~3.0.2"
+  }
+}
