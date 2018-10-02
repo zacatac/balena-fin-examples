@@ -1,5 +1,5 @@
 # balena-fin-examples
-A collection of examples for the Balena Fin board  wrapped as a resin.io multi-container application.
+A collection of examples for the Balena Fin board  wrapped as a resin.io multi-container application. This collection will be improved with more examples over time, make sure to check it out from time to time!
 
 Service | What it does
 ------------ | ------------
