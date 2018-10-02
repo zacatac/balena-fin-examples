@@ -1,6 +1,10 @@
 # balena-fin-examples
-A collection of examples for the Balena Fin board  wrapped as a resin.io multi-container application
+A collection of examples for the Balena Fin board  wrapped as a resin.io multi-container application.
 
+Service | What it does
+------------ | ------------
+wifi-connect | if the Balena Fin is not connected, exposes a WiFi access point with Captive Portal ( SSID: `Fin`, PSK: `Balena`) that allows the configuration of WiFi credentials. For more info, please refer to the [wifi-connect repository](https://github.com/resin-io/resin-wifi-connect)
+rgb-led | blinks the Balena Fin RGB LED with a random color every 3 seconds
 ## How to deploy this example via resin.io
 
 ```bash
