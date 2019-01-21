@@ -1,6 +1,6 @@
 # Artik020 example
 
-Sample code to load an application to the Artik020 module present on the Fin.
+Sample code to load an application to the Artik020 module present on the balenaFin.
 
 Note: this code only works with the balenaFin versions that contain the FTDI chip (HW v8 or older at the moment).  
 
