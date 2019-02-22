@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "author": "Carlo Maria Curinga <carlo@balena.io>",
   "license": "Apache-2.0",
   "jshintConfig": {
     "esversion": 6,

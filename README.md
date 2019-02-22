@@ -11,7 +11,7 @@ artik020 | Loads OTA bluetooth bootloader to the Artik020 module and a sample ap
 
 ```bash
 git clone git@github.com:balena-io/balena-fin-examples.git
-git remote add balena <YOUR_RESIN_USERNAME>@git.balena-cloud.com:<YOUR_RESIN_USERNAME>/<YOUR_RESIN_APP_NAME>.git
+git remote add balena <YOUR_BALENA_USERNAME>@git.balena-cloud.com:<YOUR_BALENA_USERNAME>/<YOUR_BALENA_APP_NAME>.git
 git push balena master
 ```
 ## How to deploy this example to balenaCloud via the balena CLI
