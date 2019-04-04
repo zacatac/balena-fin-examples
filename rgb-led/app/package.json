@@ -1,7 +1,7 @@
 {
   "name": "rgb",
   "version": "0.0.1",
-  "description": "simple exemple for controlling the Balena Fin RGB LED",
+  "description": "simple example for controlling the balenaFin RGB LED",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
