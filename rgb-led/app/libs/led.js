@@ -3,6 +3,7 @@
   let self;
 
   var fs = require('fs');
+  const child_process = require("child_process");
   const Gpio = require('onoff').Gpio;
 
   let rgb = function() {
@@ -13,28 +14,28 @@
     this.redPath = '/sys/class/leds/pca963x\:red/brightness';
     this.greenPath = '/sys/class/leds/pca963x\:green/brightness';
     this.bluePath = '/sys/class/leds/pca963x\:blue/brightness';
+    this.unusedPath = '/sys/class/leds/pca963x\:unused/brightness';
 
     // First, figure out if we are running on a v1.0 or v1.1 balenaFin
     // The v1.0 has LEDs connected via GPIO, whereas the v1.1 has a PCA9633 LED controller IC
-    var filecontent;
+    fs.writeFileSync(self.unusedPath, 1);
+
+    this.ledType = 'gpio';
     try {
-      filecontent = fs.readFileSync('/sys/bus/i2c/devices/3-0062/name', 'utf-8').trim();
+      child_process.execSync('dmesg | grep -q "pca963x:unused: Setting an LED\'s brightness failed"');
     } catch (err) {
-      // if the device wasn't present
-      console.log('I2C LED driver not found');
+      // We didn't find an error when using the I2C LED controller so go ahead and use that
+      this.ledType = 'pca9633';
     }
 
-    if (filecontent == 'pca9633') {
-      // if we found the controller IC
-      console.log('Using PCA9633 LED driver')
-      this.ledType = 'pca9633';
-    } else {
-      // If not then use the GPIO library
-      console.log('Using direct GPIO-driven LEDs')
-      this.ledType = 'gpio';
+    if (this.ledType == 'gpio') {
+      console.log('Using direct GPIO-driven LEDs (balenaFin v1.0)');
+
       this.red = new Gpio(504, 'out');
       this.green = new Gpio(505, 'out');
       this.blue = new Gpio(506, 'out');
+    } else {
+      console.log('Using I2C LED driver (balenaFin v1.1)');
     }
 
     // Define how the requested colors will control each LED
