@@ -2,7 +2,7 @@
 {
   let self;
 
-  var fs = require('fs');
+  const fs = require('fs');
   const child_process = require("child_process");
   const Gpio = require('onoff').Gpio;
 
